@@ -60,7 +60,9 @@
                 android:id="@+id/seekBar3"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_weight="3"/>
+                android:layout_weight="3"
+                android:max="5"
+                android:progress="2" />
 
         </LinearLayout>
 
@@ -108,7 +110,8 @@
                 android:id="@+id/button2"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="GOODBYE"/>
+                android:onClick="goodbye"
+                android:text="GOODBYE" />
 
         </LinearLayout>
 
