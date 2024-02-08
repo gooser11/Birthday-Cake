@@ -101,13 +101,13 @@
 
 
             <Button
-                android:id="@+id/button"
+                android:id="@+id/blowout"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="BLOW OUT"/>
 
             <Button
-                android:id="@+id/button2"
+                android:id="@+id/goodbye"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:onClick="goodbye"

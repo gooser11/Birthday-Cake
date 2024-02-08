@@ -9,6 +9,9 @@ import android.view.SurfaceView;
 
 public class CakeView extends SurfaceView {
 
+    //mine
+    private CakeModel myCake;
+
     /* These are the paints we'll use to draw the birthday cake below */
     Paint cakePaint = new Paint();
     Paint frostingPaint = new Paint();
@@ -62,6 +65,14 @@ public class CakeView extends SurfaceView {
 
         setBackgroundColor(Color.WHITE);  //better than black default
 
+
+        //mine
+        myCake = new CakeModel();
+
+    }
+    //mine
+    public CakeModel getMyCake(){
+        return myCake;
     }
 
     /**
@@ -71,20 +82,23 @@ public class CakeView extends SurfaceView {
     public void drawCandle(Canvas canvas, float left, float bottom) {
         canvas.drawRect(left, bottom - candleHeight, left + candleWidth, bottom, candlePaint);
 
-        //draw the outer flame
-        float flameCenterX = left + candleWidth/2;
-        float flameCenterY = bottom - wickHeight - candleHeight - outerFlameRadius/3;
-        canvas.drawCircle(flameCenterX, flameCenterY, outerFlameRadius, outerFlamePaint);
+        if (getMyCake().candlesLit) {
+            //draw the outer flame
+            float flameCenterX = left + candleWidth / 2;
+            float flameCenterY = bottom - wickHeight - candleHeight - outerFlameRadius / 3;
+            canvas.drawCircle(flameCenterX, flameCenterY, outerFlameRadius, outerFlamePaint);
 
-        //draw the inner flame
-        flameCenterY += outerFlameRadius/3;
-        canvas.drawCircle(flameCenterX, flameCenterY, innerFlameRadius, innerFlamePaint);
-
+            //draw the inner flame
+            flameCenterY += outerFlameRadius / 3;
+            canvas.drawCircle(flameCenterX, flameCenterY, innerFlameRadius, innerFlamePaint);
+        }
+        else {
+            //don't draw flames
+        }
         //draw the wick
-        float wickLeft = left + candleWidth/2 - wickWidth/2;
+        float wickLeft = left + candleWidth / 2 - wickWidth / 2;
         float wickTop = bottom - wickHeight - candleHeight;
         canvas.drawRect(wickLeft, wickTop, wickLeft + wickWidth, wickTop + wickHeight, wickPaint);
-
     }
 
     /**
