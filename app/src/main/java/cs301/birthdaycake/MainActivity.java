@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
+import android.widget.Switch;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -14,7 +15,6 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         //mine
 
-
         super.onCreate(savedInstanceState);
         setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_LANDSCAPE);
         setContentView(R.layout.activity_main);
@@ -22,9 +22,12 @@ public class MainActivity extends AppCompatActivity {
         CakeView yum = findViewById(R.id.cakeview);
         CakeController control = new CakeController(yum);
 
-        //get ref to blowout button
-        Button blow = findViewById(R.id.blowout);
-        blow.setOnClickListener(control);
+        Button blow = findViewById(R.id.blowout); // ref to blowout
+        blow.setOnClickListener(control); // register
+
+        //get ref to candles switch
+        Switch candles = findViewById(R.id.candles);
+        candles.setOnCheckedChangeListener(control);
     }
     public void goodbye(View button) {
         Log.v("button", "Goodbye");
